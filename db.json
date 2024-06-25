@@ -1,0 +1,54 @@
+{
+  "markers": [
+    {
+      "id": "612e",
+      "markers": [
+        {
+          "name": "Right Leg",
+          "x": 125,
+          "y": 369
+        },
+        {
+          "name": "Right Leg",
+          "x": 119,
+          "y": 327
+        },
+        {
+          "name": "Left Leg",
+          "x": 85,
+          "y": 392
+        }
+      ]
+    },
+    {
+      "id": "69a6",
+      "markers": [
+        {
+          "name": "Right Leg",
+          "x": 106,
+          "y": 453
+        },
+        {
+          "name": "Right Leg",
+          "x": 107,
+          "y": 389
+        }
+      ]
+    },
+    {
+      "id": "73aa",
+      "markers": [
+        {
+          "name": "Abdomen",
+          "x": 93,
+          "y": 197
+        },
+        {
+          "name": "Abdomen",
+          "x": 123,
+          "y": 155
+        }
+      ]
+    }
+  ]
+}
