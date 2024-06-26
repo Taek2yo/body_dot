@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import frontBody from "../assets/frontBody.png";
+import { useNavigate } from "react-router-dom";
 
 const BodyWrapper = styled.div`
   position: relative;
@@ -121,6 +122,8 @@ const Body: React.FC = () => {
     }
   };
 
+  const navigate = useNavigate();
+
   return (
     <>
       <BodyWrapper>
@@ -144,6 +147,13 @@ const Body: React.FC = () => {
         ))}
       </BodyWrapper>
       <Button onClick={saveMarkers}>Save Markers</Button>
+      <Button
+        onClick={() => {
+          navigate("/markers");
+        }}
+      >
+        Go get Page
+      </Button>
     </>
   );
 };

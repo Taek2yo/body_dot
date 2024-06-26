@@ -43,12 +43,7 @@ const boundingBoxes = [
 
 const GetMarkers: React.FC = () => {
   const [markers, setMarkers] = useState<
-    {
-      markers: { name: string; x: number; y: number };
-      name: string;
-      x: number;
-      y: number;
-    }[]
+    { id: string; markers: { name: string; x: number; y: number }[] }[]
   >([]);
 
   const fetchMarkers = async () => {
@@ -76,8 +71,8 @@ const GetMarkers: React.FC = () => {
     const box = boundingBoxes.find((box) => box.name === marker.name);
     if (box) {
       return {
-        x: marker.x - box.x,
-        y: marker.y - box.y,
+        x: marker.x,
+        y: marker.y,
       };
     }
     return { x: marker.x, y: marker.y };
@@ -94,12 +89,18 @@ const GetMarkers: React.FC = () => {
           height={box.height}
         />
       ))}
-      {markers.map((marker, index) => {
-        console.log(marker);
-        const relativePos = getRelativeMarkerPosition(marker);
-        // console.log(relativePos);
-        return <Marker key={index} x={relativePos.x} y={relativePos.y} />;
-      })}
+      {markers.flatMap((markerGroup) =>
+        markerGroup.markers.map((marker, index) => {
+          const relativePos = getRelativeMarkerPosition(marker);
+          return (
+            <Marker
+              key={`${markerGroup.id}-${index}`}
+              x={relativePos.x}
+              y={relativePos.y}
+            />
+          );
+        })
+      )}
     </BodyWrapper>
   );
 };
